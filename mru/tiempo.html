@@ -4,7 +4,7 @@
         <!-- meta charset -->
         <meta charset="utf-8">
         <!-- site title -->
-        <title>Fase 3 | by Bryger</title>
+        <title>Calcular tiempo | MRU</title>
         <!-- meta description -->
         <meta name="description" content="">
         <!-- mobile viwport meta -->
@@ -37,64 +37,116 @@
         <main class="site-wrapper">
             <div class="pt-table">
                 <div class="pt-tablecell page-resume relative">
-                    <!-- .close -->
-                    <a href="../fases.html" class="page-close"><i class="tf-ion-close"></i></a>
-                    <!-- /.close -->
-<br><br><br><br>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
                                 <div class="page-title text-center">
+                                    <br><br>
                                     <h1>Encontrar</h1>
-                                    <h1><span class="primary"> TIEMPO</span> <span class="title-bg">TIEMPO</span></h1>
+                                    <h1><span class="primary"><b>T I E M P O</b></span> <span class="title-bg">TIEMPO</span></h1>
+                                    <br>
                                 </div>
                             </div>
                         </div> <!-- /.row -->
-                        
                         <div class="col-xs-12 col-md-12">
                             <div class="section-title clear">
-                                <h3>Área de apoyo | Importancia</h3>
+                                <h3>REALIZAR CÁLCULO | Ingresa los valores de las variables</h3><br>
                             </div>
                             <div class="skill-wrapper">
                                 <div class="progress clear">
                                     <div class="skill-name"><h4>Distancia</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la distancia"></div>
-                                    <div class="skill-name"> metros </div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtDistancia" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la distancia"></div>
+                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
                                     
                                 </div> <!-- /.progress -->
                                 <div class="progress clear">
                                     <div class="skill-name"><h4>Velocidad</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la velocidad"></div>
-                                    <div class="skill-name"> &nbsp;metros sobre segundo</div>
-                                    
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidad" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad"></div>
+                                    <div class="skill-name"> &nbsp;segundos</div>
                                 </div> <!-- /.progress -->
+                                <div class="progress clear">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="tiempo()">Click para ver resultado</button>
+                                </div>
                             </div> <!-- /.progress -->
                         </div> <!-- /.progress -->
-                            </div> <!-- /.skill-wrapper -->
-                            <br><br>
-                            <div class="container">
-                                <nav class="page-nav clear">
-                                    <div class="container">
-                                        <div class="flex flex-middle space-between">
-                                            <span class="prev-page"><a href="../fases.html" class="link">&larr; ATRÁS</a></span>
-                                            <span class="copyright hidden-xs">Copyright &copy; 2023 BRYGER </span>
-                                            <span class="next-page"><a href="" class="link"></a></span>
-                                        </div>
+
+                        <div class ="row" id="divResultados" style="display: none;">
+                            <div class="col-xs-12 col-sm-12" >
+                                <div class="history-block">
+                                    <div class="section-title light clear">
+                                        <h2 id="h2resultado">Resultado:</h2>
                                     </div>
-                                    <!-- /.page-nav -->
-                                </nav>
-                            </div>
-                        </div> <!-- /.col -->
+                                    <!-- /.section-title -->
+                                    <div class="history-scroller">
+                                        <div class="history-item">
+                                            <div class="history-text">
+                                                <h5>Pasos</h5><br>
+                                                <p>1. Encontrar variables</p>
+                                                <ul id="variables">
+                                                </ul><br>
+                                                <p id="otrospasos">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                    </div>
+                                </div> <!-- /.history-block --><br><br>
+                            </div> <!-- /.col -->
+                        </div>
+                        <div class ="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="history-block">
+                                    <div class="section-title light clear">
+                                        <h3>Fórmula</h3>
+                                    </div>
+                                    <!-- /.section-title -->
+                                    <div class="history-scroller">
+                                    
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            
+                                            <div class="history-text">
+                                                <h5>Variables a utilizar</h5>
+                                                <ul>
+                                                    <li>Distancia</li>
+                                                    <li>Velocidad</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            
+                                            <div class="history-text">
+                                                <h5>Fórmula</h5>
+                                                <p>La fórmula indica que para encontrar la velocidad se debe de dividir la distancia por la velocidad</p>
+                                                <img src="../img/MRU/tiempo.png" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                    </div>
+                                </div> <!-- /.history-block --><br><br> <br><br>
+                            </div> <!-- /.col -->
+                        </div>
 
                     </div> <!-- /.container -->
-                    
 
+                    <nav class="page-nav clear">
+                        <div class="container">
+                            <div class="flex flex-middle space-between">
+                                <span class="prev-page"><a href="../mru.html" class="link">&larr; ATRÁS</a></span>
+                                <span class="copyright hidden-xs">Copyright &copy; 2023 BRYGER </span>
+                                <span class="next-page"><a href="" class="link"></a></span>
+                            </div>
+                        </div>
+                        <!-- /.page-nav -->
+                    </nav>
                     <!-- /.container -->
 
                 </div> <!-- /.pt-tablecell -->
             </div> <!-- /.pt-table -->
         </main> <!-- /.site-wrapper -->
-
         
         <!-- ================================
         JavaScript Libraries
@@ -108,5 +160,6 @@
         <script src="../js/jquery-validation.min.js"></script>
         <script src="../js/form.min.js"></script>
         <script src="../js/main.js"></script>
+        <script src="../js/mru/mru.js"></script>
     </body>
 </html>
