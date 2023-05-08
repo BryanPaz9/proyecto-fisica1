@@ -5,19 +5,34 @@
  * @returns FUNCIONES DE DISTANCIA
  */
 async function distancia(){
-    let velocidad = document.getElementById("txtVelocidad").value;
+    let velocidad_inicial = document.getElementById("txtVelocidadInicial").value;
+    let velocidad_final = document.getElementById("txtVelocidadFinal").value;
     let tiempo = document.getElementById("txtTiempo").value;
-    if(velocidad.length == 0){
-        alert("Ingrese un valor en la velocidad")
+    let aceleracion = document.getElementById("txtAceleracion").value;
+    let parametros = 0;
+
+    if(velocidad_inicial >= 0){
+        parametros++;
+    }
+    if(velocidad_final > 0){
+        parametros++;
+    }
+    if(tiempo > 0){
+        parametros++;
+    }
+    if(aceleracion > 0){
+        parametros++;
+    }
+    if(parametros <=2){
+        alert(`Son necesarios al menos 3 parámetros.\n Parámetros ingresados: ${parametros}`)
         return;
     }
-    if(tiempo.length == 0){
-        alert("Ingrese un valor en el tiempo")
-        return;
-    }
-    if(velocidad>=0 && tiempo >= 0){
-        let resultado = velocidad * tiempo;
+
+    if(velocidad_inicial>=0 && tiempo >0 && aceleracion >0){
+        let resultado = await distancia_sin_vf(velocidad_inicial,tiempo,aceleracion);
+        alert(resultado);
         resultado = parseFloat(resultado).toFixed(2);
+
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${resultado} metros</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -39,7 +54,7 @@ async function distancia(){
     }
 }
 
-async function distancia_con_vf(velocidad_inicial,tiempo,aceleracion){
+async function distancia_sin_vf(velocidad_inicial,tiempo,aceleracion){
     let vo = parseInt(velocidad_inicial);
     let t = parseInt(tiempo);
     let a = parseInt(aceleracion);
