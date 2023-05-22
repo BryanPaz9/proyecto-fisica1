@@ -152,11 +152,11 @@ async function velocidad_final(){
     if(velocidad_inicial>=0 && distancia>0 && aceleracion>0){
         let velocidad_final = await vf_sin_t(velocidad_inicial,distancia,aceleracion);
         document.getElementById("divResultados").style.display = "block";
-        let htmlResult = `<b>${velocidad_final} metros</b>`;
+        let htmlResult = `<b>${velocidad_final} metros por segundo</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
         let htmlVariables = `<li>Velocidad Inicial = ${velocidad_inicial} m/s</li>
-            <li>Distancia = ${distancia} s</li>
-            <li>Aceleración = ${aceleracion} s</li>
+            <li>Distancia = ${distancia} m</li>
+            <li>Aceleración = ${aceleracion} m/s^2</li>
         `;
         document.getElementById("variables").innerHTML = htmlVariables;
         /**
@@ -164,31 +164,32 @@ async function velocidad_final(){
          */
         let htmlPasos =`
         <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición.</p>
-        <p><ul><li>Vf = Vo + a*t</li></ul> </p>
-        <p>3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Velocidad Final)^2 = (${velocidad_inicial} m/s)^2 + ( 2 * ${aceleracion} m/s^2 * ${distancia} m</p><br>
-        <p>4. Se despeja la velocidad final y la ecuación es queda así. <br> <br></p>
-        <img src=""> </img>
+        <p><ul><li>Vf^2 = Vo^2 + 2a*d</li></ul> </p>
+        <p>3. Se despeja la velocidad final y la ecuación queda así. </p>
+        <p> Vf = sqrt(Vo^2 + 2 * a * d)</p>
+        <small>sqrt() = raíz cuadrada</small>
+        <p>4. Se realiza la operación y se eliminan las dimensionales para dejar solamente metros sobre segundos. <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Velocidad Final = sqrt((${velocidad_inicial} m/s)^2 + (2 * ${aceleracion} m/s^2 * ${distancia} m))</p><br>
         <p>Resultado: <br> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distancia = ${velocidad_final} metros</p>`;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Velocidad Final = ${velocidad_final} m/s</p>`;
         document.getElementById("otrospasos").innerHTML = htmlPasos;
     }else if(velocidad_inicial>=0 && tiempo>0 && aceleracion>0){
       let velocidad_final = await vf_sin_d(velocidad_inicial,aceleracion,tiempo);
       document.getElementById("divResultados").style.display = "block";
-      let htmlResult = `<b>${velocidad_final} metros</b>`;
+      let htmlResult = `<b>${velocidad_final} metros por segundo</b>`;
       document.getElementById("h2resultado").innerHTML = htmlResult;
       let htmlVariables = `<li>Velocidad Inicial = ${velocidad_inicial} m/s</li>
           <li>Tiempo = ${tiempo} s</li>
-          <li>Aceleración = ${aceleracion} s</li>
+          <li>Aceleración = ${aceleracion} m/s^2</li>
       `;
       document.getElementById("variables").innerHTML = htmlVariables;
       /**
        * REALIZAR OPERACIONES
        */
       let htmlPasos =`
-      <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición.</p>
-      <p><ul><li>Vf = Vo + a*t</li></ul> </p>
-      <p>3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+      <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. <br>
+      <ul><li>Vf = Vo + a*t</li></ul> <br>
+      3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Velocidad Final = ${velocidad_inicial} m/s + ( ${aceleracion} m/s^2 * ${tiempo} s)</p><br>
       <p>4. Se realiza la operación y se eliminan las dimensionales para dejar solamente metros sobre segundos. <br> 
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${velocidad_inicial} * ${tiempo} = ${velocidad_final} | metros/segundos</p>
