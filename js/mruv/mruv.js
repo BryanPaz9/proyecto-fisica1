@@ -163,9 +163,11 @@ async function velocidad_final(){
          * REALIZAR OPERACIONES
          */
         let htmlPasos =`
-        <p>2. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+        <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición.</p>
+        <p><ul><li>Vf = Vo + a*t</li></ul> </p>
+        <p>3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Velocidad Final)^2 = (${velocidad_inicial} m/s)^2 + ( 2 * ${aceleracion} m/s^2 * ${distancia} m</p><br>
-        <p>3. Se despeja la velocidad final y la ecuación es queda así. <br> <br></p>
+        <p>4. Se despeja la velocidad final y la ecuación es queda así. <br> <br></p>
         <img src=""> </img>
         <p>Resultado: <br> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distancia = ${velocidad_final} metros</p>`;
