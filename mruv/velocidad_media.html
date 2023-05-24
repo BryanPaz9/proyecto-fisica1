@@ -4,7 +4,7 @@
         <!-- meta charset -->
         <meta charset="utf-8">
         <!-- site title -->
-        <title>Calcular velocidad inicial | MRUV</title>
+        <title>Calcular velocidad media | MRUV</title>
         <!-- meta description -->
         <meta name="description" content="">
         <!-- mobile viwport meta -->
@@ -44,7 +44,7 @@
                                 <div class="page-title text-center">
                                     <br><br>
                                     <h1>Encontrar</h1>
-                                    <h1><span class="primary">VELOCIDAD <b>INICIAL</b></span> <span class="title-bg">INICIAL</span></h1>
+                                    <h1><span class="primary">VELOCIDAD <b>MEDIA</b></span> <span class="title-bg">MEDIA</span></h1>
                                     <br>
                                 </div>
                             </div>
@@ -55,28 +55,27 @@
                             </div>
                             <div class="skill-wrapper">
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>&nbsp;Velocidad Final&nbsp;</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad inicial"></div>
+                                    <div class="skill-name"><h4>&nbsp;Distancia Inicial&nbsp;</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtDistanciaInicial" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad inicial"></div>
                                     <div class="skill-name"> &nbsp;metros por segundos &nbsp;</div>
-                                    
                                 </div> <!-- /.progress -->
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Tiempo</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtTiempo" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el tiempo"></div>
+                                    <div class="skill-name"><h4>&nbsp;Distancia Final&nbsp;</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtDistanciaFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad inicial"></div>
+                                    <div class="skill-name"> &nbsp;metros por segundos &nbsp;</div>
+                                </div> <!-- /.progress -->
+                                <div class="progress clear">
+                                    <div class="skill-name"><h4>Tiempo Inicial</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtTiempoInicial" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el tiempo"></div>
                                     <div class="skill-name"> &nbsp;segundos</div>
-                                </div> <!-- /.progress -->
-                                <div class="progress clear">
-                                    <div class="skill-name"><h4>Aceleración</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtAceleracion" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el aceleración"></div>
-                                    <div class="skill-name"> &nbsp;metros sobre segundos al cuadrado</div>
                                 </div>
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Distancia</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtDistancia" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el distancia"></div>
-                                    <div class="skill-name"> &nbsp;metros</div>
+                                    <div class="skill-name"><h4>Tiempo Final</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtTiempoFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el tiempo"></div>
+                                    <div class="skill-name"> &nbsp;segundos</div>
                                 </div>
                                 <div class="progress clear">
-                                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="velocidad_inicial()">Click para ver resultado</button>
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="velocidad_media()">Click para ver resultado</button>
                                 </div>
                             </div> <!-- /.progress -->
                         </div> <!-- /.progress -->
@@ -106,10 +105,10 @@
                             </div> <!-- /.col -->
                         </div>
                         <div class ="row">
-                            <div class="col-xs-12 col-sm-4">
+                            <div class="col-xs-12 col-sm-12">
                                 <div class="history-block">
                                     <div class="section-title light clear">
-                                        <h3>Sin tiempo</h3>
+                                        <h3>VELOCIDAD MEDIA</h3>
                                     </div>
                                     <!-- /.section-title -->
                                     <div class="history-scroller">
@@ -120,9 +119,10 @@
                                             <div class="history-text">
                                                 <h5>Variables a utilizar</h5>
                                                 <ul>
-                                                    <li>Velocidad final</li>
-                                                    <li>Aceleración</li>
-                                                    <li>Distancia</li>
+                                                    <li>Distancia inicial</li>
+                                                    <li>Distancia final</li>
+                                                    <li>Tiempo inicial</li>
+                                                    <li>Tiempo final</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -131,76 +131,12 @@
                                             
                                             <div class="history-text">
                                                 <h5>Fórmula</h5>
-                                                <img src="../img/MRUV/velocidad_inicial/sin_t.jpg" alt="">
+                                                <img src="../img/MRUV/velocidad_media/vm.jpg" alt="">
                                             </div>
                                         </div>
                                         <!-- /.history-item -->
                                     </div>
-                                </div> <!-- /.history-block --><br>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="history-block">
-                                    <div class="section-title light clear">
-                                        <h3>Sin distancia</h3>
-                                    </div>
-                                    <!-- /.section-title -->
-                                    <div class="history-scroller">
-                                    
-                                        <!-- /.history-item -->
-                                        <div class="history-item">
-                                            
-                                            <div class="history-text">
-                                                <h5>Variables a utilizar</h5>
-                                                <ul>
-                                                    <li>Velocidad final</li>
-                                                    <li>Aceleración</li>
-                                                    <li>Tiempo</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /.history-item -->
-                                        <div class="history-item">
-                                            
-                                            <div class="history-text">
-                                                <h5>Fórmula</h5>
-                                                <img src="../img/MRUV/velocidad_inicial/sin_d.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <!-- /.history-item -->
-                                    </div>
-                                </div> <!-- /.history-block --><br>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="history-block">
-                                    <div class="section-title light clear">
-                                        <h3>Sin velocidad final</h3>
-                                    </div>
-                                    <!-- /.section-title -->
-                                    <div class="history-scroller">
-                                    
-                                        <!-- /.history-item -->
-                                        <div class="history-item">
-                                            
-                                            <div class="history-text">
-                                                <h5>Variables a utilizar</h5>
-                                                <ul>
-                                                    <li>Aceleración</li>
-                                                    <li>Distancia</li>
-                                                    <li>Tiempo</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /.history-item -->
-                                        <div class="history-item">
-                                            
-                                            <div class="history-text">
-                                                <h5>Fórmula</h5>
-                                                <img src="../img/MRUV/velocidad_inicial/sin_vf.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <!-- /.history-item -->
-                                    </div>
-                                </div> <!-- /.history-block --><br><br><br><br>
+                                </div> <!-- /.history-block --><br><br><br><br><br>
                             </div>
                         </div>
 
