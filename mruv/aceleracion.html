@@ -4,7 +4,7 @@
         <!-- meta charset -->
         <meta charset="utf-8">
         <!-- site title -->
-        <title>Calcular velocidad | MRU</title>
+        <title>Calcular aceleración | MRU</title>
         <!-- meta description -->
         <meta name="description" content="">
         <!-- mobile viwport meta -->
@@ -44,7 +44,7 @@
                                 <div class="page-title text-center">
                                     <br><br>
                                     <h1>Encontrar</h1>
-                                    <h1><span class="primary"><b>V E L O C I D A D</b></span> <span class="title-bg">VELOCIDAD</span></h1>
+                                    <h1><span class="primary"><b>A C E L E R A C I Ó N</b></span> <span class="title-bg">ACELERACIÓN</span></h1>
                                     <br>
                                 </div>
                             </div>
@@ -55,18 +55,27 @@
                             </div>
                             <div class="skill-wrapper">
                                 <div class="progress clear">
+                                    <div class="skill-name"><h4>Velocidad Inicial</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadInicial" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad inicial"></div>
+                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
+                                </div>
+                                <div class="progress clear">
+                                    <div class="skill-name"><h4>Velocidad Final</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad final"></div>
+                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
+                                </div>
+                                <div class="progress clear">
                                     <div class="skill-name"><h4>Distancia</h4></div>
                                     <div class="skill-name"> <input type="number" class="form-control" id="txtDistancia" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la distancia"></div>
                                     <div class="skill-name"> &nbsp;metros &nbsp;</div>
-                                    
-                                </div> <!-- /.progress -->
+                                </div>
                                 <div class="progress clear">
                                     <div class="skill-name"><h4>Tiempo</h4></div>
                                     <div class="skill-name"> <input type="number" class="form-control" id="txtTiempo" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa el tiempo"></div>
                                     <div class="skill-name"> &nbsp;segundos</div>
-                                </div> <!-- /.progress -->
+                                </div>
                                 <div class="progress clear">
-                                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="velocidad()">Click para ver resultado</button>
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="aceleracion()">Click para ver resultado</button>
                                 </div>
                             </div> <!-- /.progress -->
                         </div> <!-- /.progress -->
