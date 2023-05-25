@@ -264,15 +264,15 @@ async function velocidad_final(){
        * REALIZAR OPERACIONES
        */
       let htmlPasos =`
-      <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. <br>
-      <ul><li>Vf = Vo + a*t</li></ul> <br>
-      3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Velocidad Final = ${velocidad_inicial} m/s + ( ${aceleracion} m/s^2 * ${tiempo} s)</p><br>
-      <p>4. Se realiza la operación y se eliminan las dimensionales para dejar solamente metros sobre segundos. <br> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${velocidad_inicial} * ${tiempo} = ${velocidad_final} | metros/segundos</p>
-      <p>Resultado: <br> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Velocidad Final = ${velocidad_final} m/s</p>`;
-      document.getElementById("otrospasos").innerHTML = htmlPasos;
+        <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. <br>
+        <ul><li>a = (Vf - Vo) / t</li></ul> <br></p>
+        3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Velocidad Final = ${velocidad_inicial} m/s + ( ${aceleracion} m/s^2 * ${tiempo} s)</p><br>
+        <p>4. Se realiza la operación y se eliminan las dimensionales para dejar solamente metros sobre segundos. <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${velocidad_inicial} * ${tiempo} = ${velocidad_final} | metros/segundos</p>
+        <p>Resultado: <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Velocidad Final = ${velocidad_final} m/s</p>`;
+        document.getElementById("otrospasos").innerHTML = htmlPasos;
     }else{
         alert("Por favor ingrese un valor válido en los parámetros de la función");
     }
@@ -345,32 +345,26 @@ async function vm(distancia_final,distancia_inicial,tiempo_final,tiempo_inicial)
 }
 
 async function tiempo(){
-    let distancia = document.getElementById("txtDistancia").value;
-    let velocidad = document.getElementById("txtVelocidad").value;
-        if(distancia.length == 0){
-            alert("Ingrese un valor en la distancia.");
-            return;
-    
-        }
-        if(velocidad.length == 0){
-            alert("Ingrese un valor en la velocidad.");
-            return;
-        }
-        if(distancia>= 0 && velocidad>0){
-            let resultado = (distancia/velocidad);
-            resultado = parseFloat(resultado).toFixed(2);
+    let aceleracion = document.getElementById("txtAceleracion").value;
+    let velocidad_inicial = document.getElementById("txtVelocidadInicial").value;
+    let velocidad_final = document.getElementById("txtVelocidadFinal").value;
+
+        if(velocidad_final>= 0 && velocidad_inicial>0 && aceleracion){
+            let tiempo = await tiempo_mruv(velocidad_final,velocidad_inicial,aceleracion);
+            tiempo = parseFloat(tiempo).toFixed(2);
             document.getElementById("divResultados").style.display = "block";
-            let htmlResult = `<b>${resultado} segundos</b>`;
+            let htmlResult = `<b>${tiempo} segundos</b>`;
             document.getElementById("h2resultado").innerHTML = htmlResult;
-            let htmlVariables = `<li>Distancia = ${distancia} m</li>
-                <li>Velocidad = ${velocidad} s</li>
+            let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} s</li>
+                <li>Velocidad Final = ${velocidad_final} s</li>
+                <li>Aceleración = ${aceleracion} m/s^2</li>
             `;
             document.getElementById("variables").innerHTML = htmlVariables;
             let htmlPasos =`
             <p>2. Según ecuación se deben de sustituir los valores de cada variable. <br> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo = ${distancia}m / ${velocidad}s</p><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo = (${velocidad_final}m/s - ${velocidad_inicial}m/s)/${aceleracion} m/s^2</p><br>
             <p>3. Se realiza la operación y se elimina la dimensional de los segundos. <br> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${distancia} / ${velocidad} = ${resultado} | <del>metros</del> / <del>metros</del>/segundos</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(${velocidad_final} - ${velocidad_inicial}) / ${aceleracion} = ${tiempo} | segundos</p>
             <p>Resultado: <br> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo = ${resultado} s</p>`;
             document.getElementById("otrospasos").innerHTML = htmlPasos
@@ -393,7 +387,80 @@ async function tiempo_mruv(velocidad_final,velocidad_inicial,aceleracion){
  */
 
 async function aceleracion(){
+    let velocidad_inicial = document.getElementById("txtVelocidadInicial").value;
+    let velocidad_final = document.getElementById("txtVelocidadFinal").value;
+    let tiempo = document.getElementById("txtTiempo").value;
+    let distancia = document.getElementById("txtDistancia").value;
 
+    if(velocidad_final>0 && velocidad_inicial >=0 && tiempo>0){
+        let aceleracion = await aceleracion_sin_d(velocidad_final,velocidad_inicial,tiempo);
+        aceleracion = parseFloat(aceleracion).toFixed(2);
+        document.getElementById("divResultados").style.display = "block";
+        let htmlResult = `<b>${aceleracion} segundos</b>`;
+        document.getElementById("h2resultado").innerHTML = htmlResult;
+        let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} m/s</li>
+            <li>Velocidad Final = ${velocidad_final} m/s</li>
+            <li>Tiempo = ${tiempo} s</li>
+        `;
+        document.getElementById("variables").innerHTML = htmlVariables;
+        let htmlPasos =`
+        <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. <br>
+        <ul><li>a = (Vf - Vo) / t</li></ul> <br></p>
+        <p>3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = (${velocidad_final}m/s - ${velocidad_inicial}m/s)/${tiempo} s</p><br>
+        <p>4. Se realiza la operación. <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(${velocidad_final} - ${velocidad_inicial}) / ${tiempo} = ${aceleracion} | m/s^2</p>
+        <p>Resultado: <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ${aceleracion} s</p>`;
+        document.getElementById("otrospasos").innerHTML = htmlPasos
+
+    }else if(velocidad_final >0 && velocidad_inicial >=0 && distancia>0){
+        let aceleracion = await aceleracion_sin_t(velocidad_final,velocidad_inicial,distancia);
+        aceleracion = parseFloat(aceleracion).toFixed(2);
+        document.getElementById("divResultados").style.display = "block";
+        let htmlResult = `<b>${aceleracion} segundos</b>`;
+        document.getElementById("h2resultado").innerHTML = htmlResult;
+        let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} m/s</li>
+            <li>Velocidad Final = ${velocidad_final} m/s</li>
+            <li>Distancia = ${distancia} m</li>
+        `;
+        document.getElementById("variables").innerHTML = htmlVariables;
+        let htmlPasos =`
+        <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. <br>
+        <ul><li>a = (Vf - Vo) / t</li></ul> <br></p>
+        <p>3. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ((${velocidad_final} m/s)^2 - (${velocidad_inicial}m/s)^2) / 2*${distancia} s</p><br>
+        <p>4. Se realiza la operación. <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((${velocidad_final})^2 - (${velocidad_inicial})^2) / 2*${distancia} | m/s^2</p>
+        <p>Resultado: <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ${aceleracion} s</p>`;
+        document.getElementById("otrospasos").innerHTML = htmlPasos
+    }else if(velocidad_inicial>=0 && distancia>0 && tiempo>0){
+        let aceleracion = await aceleracion_sin_vf(velocidad_inicial,distancia,tiempo);
+        aceleracion = parseFloat(aceleracion).toFixed(2);
+        document.getElementById("divResultados").style.display = "block";
+        let htmlResult = `<b>${aceleracion} segundos</b>`;
+        document.getElementById("h2resultado").innerHTML = htmlResult;
+        let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} m/s</li>
+            <li>Distancia = ${distancia} m</li>
+            <li>Tiempo = ${tiempo} s</li>
+        `;
+        document.getElementById("variables").innerHTML = htmlVariables;
+        let htmlPasos =`
+        <p>2. Encontrar una fórmula que cumpla con las variables que tenemos a disposición. En este caso se utilizará la fórmula para hallar distancia. <br>
+        <ul><li>d = Vo*t + 1/2 at^2</li></ul> <br></p>
+        <p>3. Despejamos la aceleración y la fórmula entonces queda de la siguiente manera.<br>
+        <ul><li>a = 2(d-Vo*t)/t^2</li></ul> <br></p>
+        <p>4. Según ecuación se deben de sustituir los valores de cada variable. <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ((${velocidad_final} m/s)^2 - (${velocidad_inicial}m/s)^2) / 2*${distancia} s</p><br>
+        <p>5. Se realiza la operación. <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((${velocidad_final})^2 - (${velocidad_inicial})^2) / 2*${distancia} | m/s^2</p>
+        <p>Resultado: <br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ${aceleracion} s</p>`;
+        document.getElementById("otrospasos").innerHTML = htmlPasos
+    }else{
+        alert("Hacen falta parámetros para la función.");
+    }
 }
 
 async function aceleracion_sin_d(velocidad_final,velocidad_inicial,tiempo){
