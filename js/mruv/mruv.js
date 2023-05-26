@@ -30,7 +30,7 @@ async function distancia(){
 
     if(velocidad_inicial>=0 && tiempo >0 && aceleracion >0){
         let distancia = await distancia_sin_vf(velocidad_inicial,tiempo,aceleracion);
-        // resultado = parseFloat(resultado).toFixed(2);
+        // resultado = parseFloat(resultado).toFixed(3);
 
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${distancia} metros</b>`;
@@ -94,23 +94,23 @@ async function distancia(){
 }
 
 async function distancia_sin_vf(velocidad_inicial,tiempo,aceleracion){
-    let vo = parseInt(velocidad_inicial);
-    let t = parseInt(tiempo);
-    let a = parseInt(aceleracion);
+    let vo = parseFloat(velocidad_inicial);
+    let t = parseFloat(tiempo);
+    let a = parseFloat(aceleracion);
     let d = (vo*t+(0.5*a*Math.pow(t,2)));
     return d;
 }
 async function distancia_sin_t(velocidad_final,velocidad_inicial,aceleracion){
-    let vf = parseInt(velocidad_final);
-    let vo = parseInt(velocidad_inicial);
-    let a = parseInt(aceleracion);
+    let vf = parseFloat(velocidad_final);
+    let vo = parseFloat(velocidad_inicial);
+    let a = parseFloat(aceleracion);
     let d = ((Math.pow(vf,2)-(Math.pow(vo,2)))/(2*a));
     return d;
 }
 async function distancia_sin_a(velocidad_inicial,velocidad_final,tiempo){
-    let vo = parseInt(velocidad_inicial);
-    let vf = parseInt(velocidad_final);
-    let t = parseInt(tiempo);
+    let vo = parseFloat(velocidad_inicial);
+    let vf = parseFloat(velocidad_final);
+    let t = parseFloat(tiempo);
     let d = ((vo+vf)/2)*t;
     return d;
 }
@@ -127,7 +127,7 @@ let aceleracion = document.getElementById("txtAceleracion").value;
 let velocidad_final = document.getElementById("txtVelocidadFinal").value;
     if(velocidad_final> 0 && aceleracion>0 && distancia >0){
         let velocidad_inicial = await vo_sin_t(velocidad_final,aceleracion,distancia);
-        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(2);
+        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${velocidad_inicial} metros por segundo</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -150,7 +150,7 @@ let velocidad_final = document.getElementById("txtVelocidadFinal").value;
         document.getElementById("otrospasos").innerHTML = htmlPasos;
     }else if(velocidad_final>0 && aceleracion>0 && tiempo>0){
         let velocidad_inicial = await vo_sin_d(velocidad_final,aceleracion,tiempo);
-        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(2);
+        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${velocidad_inicial} metros por segundo</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -169,7 +169,7 @@ let velocidad_final = document.getElementById("txtVelocidadFinal").value;
         document.getElementById("otrospasos").innerHTML = htmlPasos;
     }else if(aceleracion>0 && distancia> 0 && tiempo >0){
         let velocidad_inicial = await vo_sin_vf(aceleracion,distancia,tiempo);
-        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(2);
+        velocidad_inicial = parseFloat(velocidad_inicial).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${velocidad_inicial} metros por segundo</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -195,23 +195,23 @@ let velocidad_final = document.getElementById("txtVelocidadFinal").value;
 }
 
 async function vo_sin_t(velocidad_final,aceleracion,distancia){
-    let vf = parseInt(velocidad_final);
-    let a = parseInt(aceleracion);
-    let d = parseInt(distancia);
+    let vf = parseFloat(velocidad_final);
+    let a = parseFloat(aceleracion);
+    let d = parseFloat(distancia);
     let vo = Math.sqrt((Math.pow(vf,2)-(2*a*d)));
     return vo;
 }
   async function vo_sin_d(velocidad_final,aceleracion,tiempo){
-    let vf = parseInt(velocidad_final);
-    let a = parseInt(aceleracion);
-    let t = parseInt(tiempo);
+    let vf = parseFloat(velocidad_final);
+    let a = parseFloat(aceleracion);
+    let t = parseFloat(tiempo);
     let vo = (vf-(a*t));
     return vo;
 }
   async function vo_sin_vf(aceleracion,distancia,tiempo){
-    let a = parseInt(aceleracion);
-    let d = parseInt(distancia);
-    let t = parseInt(tiempo);
+    let a = parseFloat(aceleracion);
+    let d = parseFloat(distancia);
+    let t = parseFloat(tiempo);
     let vo = ((d-((a * Math.pow(t,2))/2))/t);
     return vo;
 }
@@ -279,17 +279,17 @@ async function velocidad_final(){
 }
 
 async function vf_sin_t(velocidad_inicial,distancia,aceleracion){
-    let vo = parseInt(velocidad_inicial);
-    let a = parseInt(aceleracion);
-    let d = parseInt(distancia);
+    let vo = parseFloat(velocidad_inicial);
+    let a = parseFloat(aceleracion);
+    let d = parseFloat(distancia);
     let vf = Math.sqrt((Math.pow(vo,2)+2*(a*d)));
     return vf;
 }
   
 async function vf_sin_d(velocidad_inicial,aceleracion,tiempo){
-    let vo = parseInt(velocidad_inicial);
-    let a = parseInt(aceleracion);
-    let t = parseInt(tiempo);
+    let vo = parseFloat(velocidad_inicial);
+    let a = parseFloat(aceleracion);
+    let t = parseFloat(tiempo);
     let vf = vo+(a*t);
     return vf;
 }
@@ -340,7 +340,7 @@ async function vm(distancia_final,distancia_inicial,tiempo_final,tiempo_inicial)
     let xo = parseFloat(distancia_inicial);
     let tf = parseFloat(tiempo_final);
     let to = parseFloat(tiempo_inicial);
-    let vm = ((xf-xo)/(tf-to)).toFixed(2);
+    let vm = ((xf-xo)/(tf-to)).toFixed(3);
     return vm;
 }
 
@@ -351,7 +351,7 @@ async function tiempo(){
 
         if(velocidad_final>= 0 && velocidad_inicial>0 && aceleracion){
             let tiempo = await tiempo_mruv(velocidad_final,velocidad_inicial,aceleracion);
-            tiempo = parseFloat(tiempo).toFixed(2);
+            tiempo = parseFloat(tiempo).toFixed(3);
             document.getElementById("divResultados").style.display = "block";
             let htmlResult = `<b>${tiempo} segundos</b>`;
             document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -375,9 +375,9 @@ async function tiempo(){
 }
 
 async function tiempo_mruv(velocidad_final,velocidad_inicial,aceleracion){
-    let vf = parseInt(velocidad_final);
-    let vo = parseInt(velocidad_inicial);
-    let a = parseInt(aceleracion);
+    let vf = parseFloat(velocidad_final);
+    let vo = parseFloat(velocidad_inicial);
+    let a = parseFloat(aceleracion);
     let t = ((vf-vo)/a);
     return t;
   }
@@ -394,7 +394,7 @@ async function aceleracion(){
 
     if(velocidad_final>0 && velocidad_inicial =="" && tiempo>0 && distancia>0){
         let aceleracion = await aceleracion_sin_vo(velocidad_final,tiempo,distancia);
-        aceleracion = parseFloat(aceleracion).toFixed(2);
+        aceleracion = parseFloat(aceleracion).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${aceleracion} m/s^2</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -416,7 +416,7 @@ async function aceleracion(){
 
     }else if(velocidad_final>0 && velocidad_inicial >=0 && tiempo>0){
         let aceleracion = await aceleracion_sin_d(velocidad_final,velocidad_inicial,tiempo);
-        aceleracion = parseFloat(aceleracion).toFixed(2);
+        aceleracion = parseFloat(aceleracion).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${aceleracion} m/s^2</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -438,7 +438,7 @@ async function aceleracion(){
 
     }else if(velocidad_final >0 && velocidad_inicial >=0 && distancia>0){
         let aceleracion = await aceleracion_sin_t(velocidad_final,velocidad_inicial,distancia);
-        aceleracion = parseFloat(aceleracion).toFixed(2);
+        aceleracion = parseFloat(aceleracion).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${aceleracion} m/s^2</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -459,7 +459,7 @@ async function aceleracion(){
         document.getElementById("otrospasos").innerHTML = htmlPasos
     }else if(velocidad_inicial>=0 && distancia>0 && tiempo>0){
         let aceleracion = await aceleracion_sin_vf(velocidad_inicial,distancia,tiempo);
-        aceleracion = parseFloat(aceleracion).toFixed(2);
+        aceleracion = parseFloat(aceleracion).toFixed(3);
         document.getElementById("divResultados").style.display = "block";
         let htmlResult = `<b>${aceleracion} m/s^2</b>`;
         document.getElementById("h2resultado").innerHTML = htmlResult;
@@ -495,25 +495,25 @@ async function aceleracion_sin_vo(velocidad_final,tiempo,distancia){
 
 
 async function aceleracion_sin_d(velocidad_final,velocidad_inicial,tiempo){
-    let vo = parseInt(velocidad_inicial);
-    let vf = parseInt(velocidad_final);
-    let t = parseInt(tiempo);
+    let vo = parseFloat(velocidad_inicial);
+    let vf = parseFloat(velocidad_final);
+    let t = parseFloat(tiempo);
     let aceleracion = ((vf-vo)/t);
     return aceleracion;
   }
   
 async function aceleracion_sin_t(velocidad_final,velocidad_inicial,distancia){
-    let vo = parseInt(velocidad_inicial);
-    let vf = parseInt(velocidad_final);
-    let d = parseInt(distancia);
+    let vo = parseFloat(velocidad_inicial);
+    let vf = parseFloat(velocidad_final);
+    let d = parseFloat(distancia);
     let aceleracion = ((Math.pow(vf,2)-Math.pow(vo,2))/(2*d));
     return aceleracion;
   }
   
 async function aceleracion_sin_vf(velocidad_inicial,distancia,tiempo){
-    let vo = parseInt(velocidad_inicial);
-    let d = parseInt(distancia);
-    let t = parseInt(tiempo);
+    let vo = parseFloat(velocidad_inicial);
+    let d = parseFloat(distancia);
+    let t = parseFloat(tiempo);
     let aceleracion = (((d-(vo*t))*2)/Math.pow(t,2));
     return aceleracion;
   }
