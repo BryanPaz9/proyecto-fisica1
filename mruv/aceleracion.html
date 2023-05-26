@@ -55,14 +55,14 @@
                             </div>
                             <div class="skill-wrapper">
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Velocidad Inicial</h4></div>
+                                    <div class="skill-name"><h4>Velocidad Inicial </h4></div>
                                     <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadInicial" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad inicial"></div>
-                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
+                                    <div class="skill-name"> &nbsp;metros sobre segundos &nbsp;</div>
                                 </div>
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Velocidad Final</h4></div>
+                                    <div class="skill-name"><h4>Velocidad Final </h4></div>
                                     <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad final"></div>
-                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
+                                    <div class="skill-name"> &nbsp;metros sobre segundos &nbsp;</div>
                                 </div>
                                 <div class="progress clear">
                                     <div class="skill-name"><h4>Distancia</h4></div>
@@ -105,10 +105,10 @@
                             </div> <!-- /.col -->
                         </div>
                         <div class ="row">
-                            <div class="col-xs-12 col-sm-12">
+                            <div class="col-xs-12 col-sm-4">
                                 <div class="history-block">
                                     <div class="section-title light clear">
-                                        <h3>Fórmula</h3>
+                                        <h3>Sin Velocidad Final</h3>
                                     </div>
                                     <!-- /.section-title -->
                                     <div class="history-scroller">
@@ -119,7 +119,71 @@
                                             <div class="history-text">
                                                 <h5>Variables a utilizar</h5>
                                                 <ul>
+                                                    <li>Velocidad Inicial</li>
+                                                    <li>Velocidad Final</li>
+                                                    <li>Tiempo</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            <div class="history-text">
+                                                <h5>Fórmula</h5>
+                                                <img src="../img/MRUV/aceleracion/sin_vf.png" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                    </div>
+                                </div> <!-- /.history-block --><br><br> <br><br>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="history-block">
+                                    <div class="section-title light clear">
+                                        <h3>Sin Tiempo</h3>
+                                    </div>
+                                    <!-- /.section-title -->
+                                    <div class="history-scroller">
+                                    
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            
+                                            <div class="history-text">
+                                                <h5>Variables a utilizar</h5>
+                                                <ul>
+                                                    <li>Velocidad Final</li>
+                                                    <li>Velocidad Inicial</li>
                                                     <li>Distancia</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            
+                                            <div class="history-text">
+                                                <h5>Fórmula</h5>
+                                                <img src="../img/MRUV/aceleracion/sin_tiempo.png" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- /.history-item -->
+                                    </div>
+                                </div> <!-- /.history-block --><br><br> <br><br>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="history-block">
+                                    <div class="section-title light clear">
+                                        <h3>Sin Distancia</h3>
+                                    </div>
+                                    <!-- /.section-title -->
+                                    <div class="history-scroller">
+                                    
+                                        <!-- /.history-item -->
+                                        <div class="history-item">
+                                            
+                                            <div class="history-text">
+                                                <h5>Variables a utilizar</h5>
+                                                <ul>
+                                                    <li>Velocidad Final</li>
+                                                    <li>Velocidad Inicial</li>
                                                     <li>Tiempo</li>
                                                 </ul>
                                             </div>
@@ -129,14 +193,13 @@
                                             
                                             <div class="history-text">
                                                 <h5>Fórmula</h5>
-                                                <p>La fórmula indica que para encontrar la velocidad se debe de dividir la distancia por el tiempo</p>
-                                                <img src="../img/MRU/velocidad.png" alt="">
+                                                <img src="../img/MRUV/aceleracion/sin_distancia.png" alt="">
                                             </div>
                                         </div>
                                         <!-- /.history-item -->
                                     </div>
                                 </div> <!-- /.history-block --><br><br> <br><br>
-                            </div> <!-- /.col -->
+                            </div>
                         </div>
 
                     </div> <!-- /.container -->
@@ -169,6 +232,6 @@
         <script src="../js/jquery-validation.min.js"></script>
         <script src="../js/form.min.js"></script>
         <script src="../js/main.js"></script>
-        <script src="../js/mru/mruv.js"></script>
+        <script src="../js/mruv/mruv.js"></script>
     </body>
 </html>
