@@ -355,8 +355,8 @@ async function tiempo(){
             document.getElementById("divResultados").style.display = "block";
             let htmlResult = `<b>${tiempo} segundos</b>`;
             document.getElementById("h2resultado").innerHTML = htmlResult;
-            let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} s</li>
-                <li>Velocidad Final = ${velocidad_final} s</li>
+            let htmlVariables = `<li>Velocidad inicial = ${velocidad_inicial} m/s</li>
+                <li>Velocidad Final = ${velocidad_final} m/s</li>
                 <li>Aceleración = ${aceleracion} m/s^2</li>
             `;
             document.getElementById("variables").innerHTML = htmlVariables;
@@ -366,7 +366,7 @@ async function tiempo(){
             <p>3. Se realiza la operación y se elimina la dimensional de los segundos. <br> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(${velocidad_final} - ${velocidad_inicial}) / ${aceleracion} = ${tiempo} | segundos</p>
             <p>Resultado: <br> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo = ${resultado} s</p>`;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo = ${tiempo} s</p>`;
             document.getElementById("otrospasos").innerHTML = htmlPasos
         }else{
             alert("Por favor ingrese un valor válido en los parámetros de la función. La velocidad no puede ser 0");

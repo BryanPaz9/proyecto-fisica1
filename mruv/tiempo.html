@@ -55,15 +55,19 @@
                             </div>
                             <div class="skill-wrapper">
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Distancia</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtDistancia" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la distancia"></div>
-                                    <div class="skill-name"> &nbsp;metros &nbsp;</div>
-                                    
+                                    <div class="skill-name"><h4>Velocidad Final</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadFinal" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad final"></div>
+                                    <div class="skill-name"> &nbsp;metros por segundos</div>
                                 </div> <!-- /.progress -->
                                 <div class="progress clear">
-                                    <div class="skill-name"><h4>Velocidad</h4></div>
-                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidad" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad"></div>
-                                    <div class="skill-name"> &nbsp;segundos</div>
+                                    <div class="skill-name"><h4>Velocidad Inicial</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtVelocidadInicial" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la velocidad final"></div>
+                                    <div class="skill-name"> &nbsp;metros por segundos</div>
+                                </div> <!-- /.progress -->
+                                <div class="progress clear">
+                                    <div class="skill-name"><h4>Aceleración</h4></div>
+                                    <div class="skill-name"> <input type="number" class="form-control" id="txtAceleracion" value = "0" min="0" aria-describedby="emailHelp" placeholder="Ingresa la aceleración"></div>
+                                    <div class="skill-name"> &nbsp;metros sobre segundos al cuadrado &nbsp;</div>
                                 </div> <!-- /.progress -->
                                 <div class="progress clear">
                                         <button type="button" class="btn btn-primary btn-lg btn-block" onclick="tiempo()">Click para ver resultado</button>
@@ -110,8 +114,9 @@
                                             <div class="history-text">
                                                 <h5>Variables a utilizar</h5>
                                                 <ul>
-                                                    <li>Distancia</li>
-                                                    <li>Velocidad</li>
+                                                    <li>Velocidad Final</li>
+                                                    <li>Velocidd Inicial</li>
+                                                    <li>Aceleración</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -120,8 +125,7 @@
                                             
                                             <div class="history-text">
                                                 <h5>Fórmula</h5>
-                                                <p>La fórmula indica que para encontrar la velocidad se debe de dividir la distancia por la velocidad</p>
-                                                <img src="../img/MRU/tiempo.png" alt="">
+                                                <img src="../img/MRUV/tiempo/tiempo.PNG" alt="">
                                             </div>
                                         </div>
                                         <!-- /.history-item -->
@@ -160,6 +164,6 @@
         <script src="../js/jquery-validation.min.js"></script>
         <script src="../js/form.min.js"></script>
         <script src="../js/main.js"></script>
-        <script src="../js/mru/mruv.js"></script>
+        <script src="../js/mruv/mruv.js"></script>
     </body>
 </html>
