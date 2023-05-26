@@ -11,6 +11,8 @@ function distancia(){
         alert("Ingrese un valor en el tiempo")
         return;
     }
+    velocidad = parseFloat(velocidad);
+    tiempo = parseFloat(tiempo);
     if(velocidad>=0 && tiempo >= 0){
         let resultado = velocidad * tiempo;
         resultado = parseFloat(resultado).toFixed(2);
@@ -47,6 +49,8 @@ let tiempo = document.getElementById("txtTiempo").value;
         alert("Ingrese un valor en el tiempo.");
         return;
     }
+    distancia = parseFloat(distancia);
+    tiempo = parseFloat(tiempo);
     if(distancia>= 0 && tiempo>0){
         let resultado = (distancia/tiempo);
         resultado = parseFloat(resultado).toFixed(2);
@@ -83,6 +87,8 @@ function tiempo(){
             alert("Ingrese un valor en la velocidad.");
             return;
         }
+        distancia = parseFloat(distancia);
+        velocidad = parseFloat(velocidad);
         if(distancia>= 0 && velocidad>0){
             let resultado = (distancia/velocidad);
             resultado = parseFloat(resultado).toFixed(2);
