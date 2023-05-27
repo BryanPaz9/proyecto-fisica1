@@ -433,7 +433,7 @@ async function aceleracion(){
         <p>4. Se realiza la operación. <br> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(${velocidad_final} - ${velocidad_inicial}) / ${tiempo} = ${aceleracion} | m/s^2</p>
         <p>Resultado: <br> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ${aceleracion} s</p>`;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aceleración = ${aceleracion} m/s^2</p>`;
         document.getElementById("otrospasos").innerHTML = htmlPasos
 
     }else if(velocidad_final >0 && velocidad_inicial >=0 && distancia>0){
